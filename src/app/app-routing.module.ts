@@ -4,6 +4,7 @@ import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { LoginComponent } from './login/login.component';
+import { MahasiswaComponent } from './mahasiswa/mahasiswa.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'dashboard2',
     component: Dashboard2Component
+  },
+  {
+    path: 'mahasiswa',
+    component: MahasiswaComponent,
   }
   // {
   //   path: 'register',
