@@ -12,6 +12,53 @@
                         <span class="ml-2 mr-2">/</span>
                         <span>mahasiswa</span>
                     </div>
+
+                    <button type="button" (click)="showTambahModal()" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambahkan</button>
+                    <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Mahasiswa Baru</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <label for="nim">NIM</label>
+                              <input type="text" id="nim" placeholder="Masukan NIM" class="form-control"/>
+                              <label for="nama" class="mt-2">Nama</label>
+                              <input type="text" id="nama" placeholder="Masukan nama anda" class="form-control"/>
+                              <label for="jk" class="mt-2">Jenis Kelamin</label>
+                              <select class="form-control" id="jk">
+                                <option value="laki-laki">Laki - Laki</option>
+                                <option value="perempuan">Perempuan</option>
+                              </select>
+                              <label for="tl" class="mt-2">Tempat Lahir</label>
+                              <input type="text" id="tl" placeholder="Masukan tempat lahir" class="form-control"/>
+                              <label for="tanggal" class="mt-2">Tanggal Lahir</label>
+                              <input type="date" id="tanggal" class="form-control"/>
+                              <label for="prodi" class="mt-2">Prodi</label>
+                              <select class="form-control" id="prodi">
+                                <option value="SI/SI">SI/SI</option>
+                                <option value="TI/TI">TI/TI</option>
+                              </select>
+                              <label for="alamat" class="mt-2">Alamat</label>
+                              <textarea type="text" id="alamat" placeholder="Masukan alamat anda" class="form-control"></textarea>
+                              <label for="pernikahan" class="mt-2">Status Pernikahan</label>
+                              <select class="form-control" id="pernikahan">
+                                <option value="Belum Menikah">Belum Menikah</option>
+                                <option value="Sudah Menikah">Sudah Menikah</option>
+                                <option value="Janda">Janda</option>
+                                <option value="Duda">Duda</option>
+                              </select>
+                              <label for="tm" class="mt-2">Tahun Masuk</label>
+                              <input type="number" id="tm" placeholder="Masukan tahun masuk" class="form-control"/>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" (click)="postRecord()" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
