@@ -22,8 +22,11 @@ export class SidebarComponent implements OnInit {
    * Handling action for log out button
    */
   logOut() : void {
+
+    // remove session storage
     sessionStorage.removeItem("userId")
 
+    // wait for 1 second and then redirect to login page
     setTimeout(() => {
       this.route.navigate(['/login'])
     }, 1000)
