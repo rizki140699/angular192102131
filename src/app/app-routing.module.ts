@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { LoginComponent } from './login/login.component';
 import { MahasiswaComponent } from './mahasiswa/mahasiswa.component';
+import { OtentikasiGuard } from './otentikasi.guard';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -26,16 +27,19 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'dashboard1',
-    component: DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [OtentikasiGuard]
   },
   {
     path: 'dashboard2',
-    component: Dashboard2Component
+    component: Dashboard2Component,
+    canActivate: [OtentikasiGuard]
   },
   {
     path: 'mahasiswa',
     component: MahasiswaComponent,
+    canActivate: [OtentikasiGuard]
   }
   // {
   //   path: 'register',

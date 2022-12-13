@@ -9,9 +9,9 @@
             <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
     
-            <form action="../../index3.html" method="post">
+            <div action="" method="post">
                 <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" placeholder="Email" id="emailForm">
                 <div class="input-group-append">
                     <div class="input-group-text">
                     <span class="fas fa-envelope"></span>
@@ -19,7 +19,7 @@
                 </div>
                 </div>
                 <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" id="passwordForm">
                 <div class="input-group-append">
                     <div class="input-group-text">
                     <span class="fas fa-lock"></span>
@@ -40,16 +40,16 @@
                     <button 
                         type="button"
                         class="btn btn-primary btn-block" 
-                        [routerLink]="['/admin']"
+                        (click)="signIn()"
                         routerLinkActive="router-link-active"
                     >Sign In</button>
                 </div>
                 <!-- /.col -->
                 </div>
-            </form>
+            </div>
     
             <div class="social-auth-links text-center mb-3">
-                <p>- OR -</p>
+                <p (click)="showAlert('login error')">- OR -</p>
                 <a href="#" class="btn btn-block btn-primary">
                 <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                 </a>
@@ -75,5 +75,24 @@
             </div>
             <!-- /.login-card-body -->
         </div>
+    </div>
+</div>
+
+<!-- modal gagal login -->
+<!-- Modal -->
+<div class="modal fade" id="failedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fs-5" id="exampleModalLabel">Peringatan</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span id="errorMessage"></span>
+        </div>
+        <div class="modal-footer">
+          <button (click)="hideModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
 </div>
