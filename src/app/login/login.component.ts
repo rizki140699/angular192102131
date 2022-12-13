@@ -23,7 +23,14 @@ export class LoginComponent implements OnInit {
     $('#errorMessage').html(message);
   }
 
+  /**
+   * Do authentication using id and password
+   * if success redirect to dashboard page
+   * if it's not show alert
+   */
+
   signIn() : void {
+    
     // get parameter from form
     const email = encodeURIComponent($('#emailForm').val())
     const password = encodeURIComponent($('#passwordForm').val())
@@ -31,12 +38,14 @@ export class LoginComponent implements OnInit {
     // define url
     const url = `https://stmikpontianak.net/011100862/login.php?id=${email}&password=${password}`
 
+    // send data to server
     this.http.get(url)
     .subscribe((data : any) => {
-      console.log(data)
 
+      // get the first data
       const result = data[0]
 
+      // if result count < 1 show alert and do not redirect to anywhere
       if(result.idCount !== "1"){
         this.showAlert('Id atau password tidak cocok')
       }else{
