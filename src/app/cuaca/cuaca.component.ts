@@ -41,7 +41,7 @@ export class CuacaComponent implements OnInit {
   async ambilDataCuaca(){
     
     // menghubungi server cuaca
-    const response = await fetch("http://api.openweathermap.org/data/2.5/forecast?id=1630789&appid=5e291b18500c40a33299fa6d0d32189b")
+    const response = await fetch("https://api.openweathermap.org/data/2.5/forecast?id=1630789&appid=5e291b18500c40a33299fa6d0d32189b")
 
     // mengubah balasan dari server menjadi data json
     const data = await response.json()
