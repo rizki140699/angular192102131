@@ -20,7 +20,18 @@ export class CuacaComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.table = $('#table-cuaca').DataTable()
+    this.table = $('#table-cuaca').DataTable({
+      "columnDefs": [
+        {
+          "targets": 0,
+          "render": function(data : string){
+            const waktu = moment(`${data} UTC`)
+
+            return `${waktu.format("YYYY-MM-DD")} <br/> ${waktu.format("HH:mm")} WIB`
+          }
+        }
+      ]
+    })
     this.ambilDataCuaca()
   }
 
@@ -50,13 +61,12 @@ export class CuacaComponent implements OnInit {
     data.list.forEach((items : any, i : number) => {
 
       // format data table (waktu, icon, cuaca, suhu)
-      const waktu = moment(`${items.dt_txt} UTC`).format("llll")
       const icon = `<img src='https://openweathermap.org/img/wn/${items.weather[0].icon}.png'/>`
       const cuaca = `<b>${items.weather[0].main}</b><br/>${items.weather[0].description}`
       const suhu = `${this.kelvinToCelcius(items.main.temp_min)}°C - ${this.kelvinToCelcius(items.main.temp_max)}°C`
 
       // mengubah setiap fields data ke dalam baris tabel
-      const rows = [waktu, cuaca, icon, suhu]
+      const rows = [items.dt_txt, cuaca, icon, suhu]
 
       // menampilkan setiap baris data ke dalam bentuk tabel
       this.table.row.add(rows)
