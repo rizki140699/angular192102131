@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 import { Route, Router } from '@angular/router';
 
 declare const $ : any
@@ -12,10 +12,15 @@ export class SidebarComponent implements OnInit {
   
   @Input() moduleName : string = "";
   
-  constructor(private route : Router) { }
+  constructor(private route : Router, private renderer : Renderer2) { }
 
   ngOnInit(): void {
     $('#userName').html(sessionStorage.getItem('userId'));
+  }
+
+  ngAfterViewInit() : void{
+    this.renderer.removeClass(document.body, "sidebar-open");
+    this.renderer.addClass(document.body, "sidebar-closed");
   }
 
   /**
